@@ -22,7 +22,7 @@ class Mailer
     sg = SendGrid::API.new(api_key: api_key)
 
     @response = sg.client.mail._('send').post(request_body: mail.to_json)
-    puts 'Email sent.'
+    puts "Email sent to #{email} with code #{response.status_code}."
   end
 
   private

@@ -2242,3 +2242,15 @@
   score: 0
   user_score: 0
   summary: 
+- !ruby/object:Game
+  name: 'Tesla vs Lovecraft: For Science!'
+  date: 4/18
+  score: 0
+  user_score: 0
+  summary: 
+- !ruby/object:Game
+  name: Dreams Early Access
+  date: 4/16
+  score: 0
+  user_score: 0
+  summary: 
