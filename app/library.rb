@@ -8,7 +8,7 @@ class Library
   end
 
   def save
-    File.open('data/games.yml', 'w') do |file|
+    File.open('app/data/games.yml', 'w') do |file|
       file.write(games.to_yaml)
     end
   end
@@ -49,6 +49,6 @@ class Library
   private
 
   def open
-    @games = YAML.load_file('data/games.yml') if File.exist?('data/games.yml')
+    @games = YAML.load_file('app/data/games.yml') if File.exist?('app/data/games.yml')
   end
 end

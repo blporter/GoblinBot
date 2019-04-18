@@ -37,7 +37,7 @@ class Mailer
   end
 
   def open
-    data = YAML.load_file('data/config.yml')
+    data = YAML.load_file('config.yml')
     @api_key = data['api_key']
     @email = data['email']
   end

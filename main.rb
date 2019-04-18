@@ -1,5 +1,5 @@
-require_relative 'lib/scraper'
-require_relative 'lib/mailer'
+require_relative 'app/lib/scraper'
+require_relative 'app/lib/mailer'
 require 'yaml'
 
 scraper = Scraper.new('https://www.metacritic.com/browse/games/release-date/new-releases/ps4/date')
