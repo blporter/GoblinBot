@@ -7,8 +7,6 @@ scraper = Scraper.new('https://www.metacritic.com/browse/games/release-date/new-
 library = scraper.parse_games
 library.save
 
-library.sort_user_scores
-
-# library.print
+# puts library
 
 Mailer.new(library)

@@ -25,7 +25,6 @@ class Scraper
     library = Library.new
     benchmarker = Benchmarker.new
 
-    puts 'Fetching Game Summaries'
     benchmarker.run do
       fill_library(names, dates, scores, user_scores, library)
     end
@@ -36,6 +35,7 @@ class Scraper
   private
 
   def fill_library(names, dates, scores, user_scores, library)
+    puts 'Fetching Game Summaries'
     (0...names.size).each do |i|
       print '.'
       game = Game.new(names[i].strip,
@@ -44,9 +44,11 @@ class Scraper
                       user_scores[i].strip)
 
       next if library.games.include? game
+      next if game.score.zero? && game.user_score.zero?
+      next if game.score < 60
 
       summary = parse_summary(names[i].strip)
-      game.summary = summary.nil? ? nil : summary[0]
+      game.summary = summary.nil? ? 'None available.' : summary[0]
       library.games.push(game)
     end
   end

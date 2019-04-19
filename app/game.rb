@@ -14,7 +14,7 @@ class Game
   end
 
   def <=>(other)
-    other.score <=> score
+    other.date <=> date
   end
 
   def ==(other)
@@ -29,6 +29,8 @@ class Game
   private
 
   def assign_date(date)
+    return date if date == 'tbd'
+
     new_date = DateTime.parse(date).to_date
     new_date.strftime('%-m/%-d')
   end
