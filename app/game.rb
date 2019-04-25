@@ -32,6 +32,6 @@ class Game
     return date if date == 'tbd'
 
     new_date = DateTime.parse(date).to_date
-    new_date.strftime('%-m/%-d')
+    new_date.strftime('%-m/%d')
   end
 end

@@ -7,7 +7,7 @@ class Mailer
 
   attr_accessor :response, :email, :api_key
 
-  def initialize(library = nil)
+  def initialize(library)
     open
     from = SendGrid::Email.new(email: 'Gabnix@Goblin.com')
     to = SendGrid::Email.new(email: email)

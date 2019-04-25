@@ -9,7 +9,7 @@ require_relative '../library'
 class Scraper
   attr_accessor :parse_page, :agent
 
-  def initialize(url = nil)
+  def initialize(url)
     puts 'Fetching Games'
     @agent = Mechanize.new { |agent| agent.user_agent_alias = 'Windows Chrome' }
     @agent.request_headers
@@ -36,6 +36,7 @@ class Scraper
 
   def fill_library(names, dates, scores, user_scores, library)
     puts 'Fetching Game Summaries'
+    games = []
     (0...names.size).each do |i|
       print '.'
       game = Game.new(names[i].strip,
@@ -49,8 +50,9 @@ class Scraper
 
       summary = parse_summary(names[i].strip)
       game.summary = summary.nil? ? 'None available.' : summary[0]
-      library.games.push(game)
+      games.push(game)
     end
+    library.games.unshift(games).flatten!
   end
 
   def product_wrap
